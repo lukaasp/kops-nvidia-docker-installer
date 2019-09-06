@@ -63,7 +63,7 @@ verify_nvidia_installation() {
 }
 
 install_nvidia_docker2() {
-  curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
+  export VERSION=18.06 && curl -sSL get.docker.com | sh
   curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
   distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
   curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | tee /etc/apt/sources.list.d/nvidia-docker.list
